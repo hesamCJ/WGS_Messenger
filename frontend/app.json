@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "WGS Messenger",
+    "slug": "wgs-messenger",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.wgs.messenger"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0084ff"
+      },
+      "package": "com.wgs.messenger"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "permissions": [
+      "CAMERA",
+      "CAMERA_ROLL",
+      "RECORD_AUDIO"
+    ],
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "audioPermission": "Allow $(PRODUCT_NAME) to access your audio"
+        }
+      ]
+    ]
+  }
+}

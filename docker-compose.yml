@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: telegram-db
+    environment:
+      MONGO_INITDB_DATABASE: telegram-messenger
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - telegram-network
+
+  backend:
+    build: .
+    container_name: telegram-backend
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/telegram-messenger
+      JWT_SECRET: your-secret-key
+      PORT: 5000
+      NODE_ENV: production
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    networks:
+      - telegram-network
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+
+networks:
+  telegram-network:
+    driver: bridge
