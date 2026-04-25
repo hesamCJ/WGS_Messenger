@@ -46,7 +46,7 @@ A complete React Native messenger application that looks and behaves like Telegr
 ## Project Structure
 
 ```
-mobile-shop/
+WGS/
 ├── backend/
 │   ├── models/
 │   │   ├── User.js
